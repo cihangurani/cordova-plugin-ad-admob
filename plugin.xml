@@ -21,12 +21,15 @@
 	
     <!-- android -->
     <platform name="android">
+	    <dependency id="com.google.playservices" url="https://github.com/gkachru/google-play-services" commit="v23" />
 	    <config-file target="res/xml/config.xml" parent="/*">
             <feature name="AdMobPlugin" >
                 <param name="android-package" value="com.cranberrygame.cordova.plugin.ad.admob.AdMobPlugin"/>
             </feature>
         </config-file>
-		
+		<config-file target="AndroidManifest.xml" parent="/*">
+            <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        </config-file>
         <source-file src="src/android/AdMobPlugin.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/admob" />
         <source-file src="src/android/AdMobOverlap.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/admob" />
         <source-file src="src/android/AdMobSplit.java" target-dir="src/com/cranberrygame/cordova/plugin/ad/admob" />
